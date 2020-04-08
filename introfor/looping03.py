@@ -4,11 +4,19 @@
 
 import uuid
 
-howmany = int(input("How many UUIDs should be generated? "))
+while True:
 
-print("Generating UUIDs...")
+    try:
+        howmany = int(input("How many UUIDs should be generated? Limit of 10."))
+        #break
 
-# range is required because an int cannot be looped
+    except:
+        print("Type in a number between 1 and 10.")
 
-for rando in range(howmany):
-    print( uuid.uuid4() )
+if howmany <= 10:
+    print("Generating UUIDs...")
+    for rando in range(howmany):
+        print( uuid.uuid4() )
+    
+else:
+    print("You may only select between 1 and 10 UUIDs. Try again.")
